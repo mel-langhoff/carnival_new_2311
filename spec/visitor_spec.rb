@@ -15,7 +15,7 @@ RSpec.describe Visitor do
         @visitor1.add_preference(:gentle)
         @visitor1.add_preference(:thrilling)
 
-        expect(@visitor1.preferences).to eq([:gentle, :thrilling])
+        expect(@visitor1.preferences).to include(:gentle, :thrilling)
     end
 
     it "#tall_enough?" do
@@ -33,11 +33,11 @@ RSpec.describe Visitor do
         expect(@visitor1.sufficient_funds?(11)).to be false
     end
 
-    it "#check_preferences" do
+    it "#preference_included?" do
         @visitor1.add_preference(:gentle)
-        @visitor1.add_preference(:thrilling)
 
-        expect(@visitor1.preferences).to eq([:gentle, :thrilling])
+        expect(@visitor1.preference_included?(:gentle)).to be true
+        expect(@visitor1.preference_included?(:jskldjakfslkf)).to be false
     end
 end
 

@@ -3,20 +3,23 @@ require 'spec_helper'
 RSpec.describe Ride do
     before :each do
         @ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+        @visitor1 = Visitor.new("Bruce", 54, "$10")
+        @visitor2 = Visitor.new("Tucker", 36, "$5")
+        @visitor3 = Visitor.new("Penny", 64, "$15")
     end
 
     it "exists" do
         expect(@ride1).to be_an_instance_of Ride
     end
 
-    it "#add_to_rider_log" do
-        expect(@ride1.lskdfjd).to be ()
-    end
+    it "#board_rider" do
+        @visitor1.add_preference(:gentle)
+        @visitor2.add_preference(:gentle)
+        @ride1.board_rider(@visitor1)
+        @ride1.board_rider(@visitor2)
+        @ride1.board_rider(@visitor1)
 
-    it "#board_ride" do
-        expect(). to be ()
+        expect(@ride1.rider_log.first).to include(36)
     end
-
-    
 
 end

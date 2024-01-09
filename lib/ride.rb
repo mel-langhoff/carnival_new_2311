@@ -1,5 +1,5 @@
 class Ride
-    attr_reader :name, :min_height, :admission_fee, :excitement, :rider_log, :revenue
+    attr_reader :name, :min_height, :admission_fee, :excitement, :rider_log, :total_revenue
 
 
 
@@ -8,21 +8,19 @@ class Ride
         @min_height = ride_attributes[:min_height]
         @admission_fee = ride_attributes[:admission_fee]
         @excitement = ride_attributes[:excitement]
-        @rider_log = {}
+        @rider_log = Hash.new(0)
     end
 
     def total_revenue
-        @revenue = 0
+        @total_revenue = 0
 
     end
 
     def board_rider(visitor)
-        #call pay_up
-        #call tall_enough?
-    end
-
-    def add_to_rider_log
-
+        if visitor.tall_enough?(@min_height) && visitor.preference_included?(@excitement) && visitor.sufficient_funds?(@admission_fee)
+            visitor.pay_up
+            @rider_log[visitor.name] += 1
+        end
     end
 
 end

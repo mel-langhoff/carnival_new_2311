@@ -15,7 +15,7 @@ RSpec.describe Visitor do
         @visitor1.add_preference(:gentle)
         @visitor1.add_preference(:thrilling)
 
-        expect(@visitor1.preferences).to include(:thrilling)
+        expect(@visitor1.preferences).to eq([:gentle, :thrilling])
     end
 
     it "#tall_enough?" do

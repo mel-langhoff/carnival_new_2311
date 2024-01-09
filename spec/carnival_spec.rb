@@ -43,6 +43,10 @@ RSpec.describe Carnival do
             expect(@carnival1.most_popular_ride).to be(@ride1)
         end
 
+        it "#most_profitable_ride" do
+            expect(@carnival1.most_profitable_ride).to be (@ride2)
+        end
+
     end
 
 end

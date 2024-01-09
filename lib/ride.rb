@@ -9,11 +9,10 @@ class Ride
         @admission_fee = ride_attributes[:admission_fee]
         @excitement = ride_attributes[:excitement]
         @rider_log = Hash.new(0)
-        @total_times_ridden = 0
-        @total_revenue = 0
     end
 
     def total_revenue
+        @total_revenue = 0
         @rider_log.each do |visitor_name, times_ridden|
             @total_revenue += times_ridden * @admission_fee
         end

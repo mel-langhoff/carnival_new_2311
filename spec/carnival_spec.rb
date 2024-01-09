@@ -23,7 +23,7 @@ RSpec.describe Carnival do
         expect(@carnival1.rides).to eq([@ride1, @ride2, @ride3])
     end
 
-    describe "#most_popular_ride" do
+    describe "most [whatever] ride" do
         before :each do
             @carnival1.add_ride(@ride1)
             @carnival1.add_ride(@ride2)
@@ -40,13 +40,26 @@ RSpec.describe Carnival do
         end
 
         it "#most_popular_ride" do
-            expect(@carnival1.most_popular_ride).to be(@ride1)
+            expect(@carnival1.most_popular_ride).to eq(@ride1)
         end
 
         it "#most_profitable_ride" do
-            expect(@carnival1.most_profitable_ride).to be (@ride2)
-        end
+            expect(@carnival1.most_profitable_ride).to eq(@ride2)
+        end 
+    end  
+    
+    it "#total_carnival_revenue" do
+        expect(@carnival1.total_carnival_revenue).to eq(0)
 
+        @carnival1.add_ride(@ride1)
+        @carnival1.add_ride(@ride2)
+        @visitor1.add_preference(:gentle)
+        @visitor2.add_preference(:gentle)
+        @ride1.board_rider(@visitor1)
+        @ride1.board_rider(@visitor2)
+        @ride2.board_rider(@visitor1)
+
+        expect(@carnival1.total_carnival_revenue).to eq(7)
     end
 
 end

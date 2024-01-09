@@ -10,11 +10,7 @@ class Ride
     end
 
     def total_revenue
-        @total_revenue = 0
-        @rider_log.each do |visitor_name, times_ridden|
-            @total_revenue += times_ridden * @admission_fee
-        end
-        @total_revenue
+        @rider_log.values.sum * @admission_fee
     end
 
     def board_rider(visitor)

@@ -1,5 +1,5 @@
 class Ride
-    attr_reader :name, :min_height, :admission_fee, :excitement, :rider_log, :total_revenue
+    attr_reader :name, :min_height, :admission_fee, :excitement, :rider_log
 
 
 
@@ -12,8 +12,11 @@ class Ride
     end
 
     def total_revenue
-        @total_revenue = 0
-
+        total_revenue = 0
+        @rider_log.each do |visitor_name, times_ridden|
+            total_revenue += times_ridden * @admission_fee
+        end
+        total_revenue
     end
 
     def board_rider(visitor)

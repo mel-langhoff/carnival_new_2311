@@ -29,4 +29,11 @@ class Ride
     def total_times_ridden
         @total_times_ridden = @rider_log.values.sum
     end
+
+    def favorite_ride(visitor)
+        favorite_ride = @rider_log.select { |name, times_ridden|
+            name == visitor.name }.max_by do |name, times_ridden|
+                times_ridden
+            end        
+    end
 end

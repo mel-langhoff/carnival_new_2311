@@ -28,4 +28,12 @@ class Visitor
         @spending_money >= total
     end
 
+    def total_money_spent_by_visitor
+        @rider_log[visitor.name] * @admission_fee
+    end
+
+    def total_times_ridden
+        @rider_log[visitor.name]
+    end
+
 end

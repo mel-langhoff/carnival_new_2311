@@ -19,7 +19,8 @@ RSpec.describe Ride do
         @ride1.board_rider(@visitor2)
         @ride1.board_rider(@visitor1)
 
-        expect(@ride1.rider_log.first).to include(36)
+        expect(@ride1.rider_log.first).to include("Bruce")
+        expect(@ride1.rider_log.first).to include(2)
     end
 
 end

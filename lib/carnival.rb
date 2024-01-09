@@ -64,7 +64,6 @@ class Carnival
         end
     end
 
-
     def search_visitor_by_name(visitor_name)
         found_visitor = nil        
         @rides.each do |ride|
@@ -74,8 +73,5 @@ class Carnival
         end
         found_visitor
     end
-
-
-
 
 end

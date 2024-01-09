@@ -9,6 +9,7 @@ class Ride
         @admission_fee = ride_attributes[:admission_fee]
         @excitement = ride_attributes[:excitement]
         @rider_log = Hash.new(0)
+        @total_times_ridden = 0
     end
 
     def total_revenue
@@ -27,6 +28,6 @@ class Ride
     end
 
     def total_times_ridden
-        total_times_ridden = @rider_log.values.sum
+        @total_times_ridden = @rider_log.values.sum
     end
 end

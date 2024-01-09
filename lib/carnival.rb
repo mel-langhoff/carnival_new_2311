@@ -11,7 +11,9 @@ class Carnival
     end
 
     def most_popular_ride
-        
+        most_popular_ride = @rides.max_by do |ride|
+            ride.total_times_ridden
+        end
     end
 
 end

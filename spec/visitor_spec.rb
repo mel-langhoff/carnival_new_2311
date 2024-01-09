@@ -25,5 +25,12 @@ RSpec.describe Visitor do
         expect(@visitor1.tall_enough?(64)).to be false
     end
 
+    it "#pay_up" do
+        expect(@visitor1.pay_up(1)).to eq(9)
+    end
+
+    it "#sufficient_funds?" do
+        expect(@visitor1.sufficient_funds?(11)).to be false
+    end
 end
 

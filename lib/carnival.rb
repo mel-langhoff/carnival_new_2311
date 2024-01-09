@@ -1,5 +1,5 @@
 class Carnival
-    attr_reader :duration, :rides
+    attr_reader :duration, :rides, :total_revenue
 
     def initialize(duration)
         @duration = duration
@@ -47,8 +47,8 @@ class Carnival
                 visitor = @visitors.find { |visitor| visitor.name == name }
                 {
                     visitor: visitor,
-                    favorite_ride: ride.favorite_ride(visitor)
-                    total_money_spent: visitor.total_money_spent_by_visitor
+                    favorite_ride: ride.favorite_ride(visitor),
+                    total_money_spent: visitor.total_money_spent_by_visitor(visitor)
                 }
             end
         end
@@ -57,8 +57,8 @@ class Carnival
     def ride_information
         @rides.map do |ride|
             {
-                ride: ride
-                riders: ride.rider_log.map { |visitor_name| find_visitor_by_name(visitor_name) }
+                ride: ride,
+                riders: ride.rider_log.map { |visitor_name| find_visitor_by_name(visitor_name) },
                 total_revenue: ride.total_revenue
             }
         end

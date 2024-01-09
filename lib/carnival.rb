@@ -18,8 +18,9 @@ class Carnival
 
     def most_profitable_ride
         most_profitable_ride = @rides.max_by do |ride|
-            ride.total_times_ridden
+            ride.total_revenue
         end
+    end
 
 
 end

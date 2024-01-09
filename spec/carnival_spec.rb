@@ -39,7 +39,10 @@ RSpec.describe Carnival do
             @ride3.board_rider(@visitor3)
         end
 
+        it "#most_popular_ride" do
+            expect(@carnival1.most_popular_ride).to be(@ride1)
+        end
 
-
+    end
 
 end

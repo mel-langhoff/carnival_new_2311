@@ -10,4 +10,8 @@ class Carnival
         @rides << ride
     end
 
+    def most_popular_ride
+        
+    end
+
 end

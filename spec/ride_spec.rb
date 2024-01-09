@@ -48,4 +48,13 @@ RSpec.describe Ride do
         expect(@visitor2.spending_money).to eq(4)
     end
 
+    it "#total_times_ridden" do
+        @visitor1.add_preference(:gentle)
+        @visitor2.add_preference(:gentle)
+        @ride1.board_rider(@visitor1)
+        @ride1.board_rider(@visitor2)
+        @ride1.board_rider(@visitor1)
+
+        expect(@ride1.total_times_ridden).to eq(3)
+    end
 end

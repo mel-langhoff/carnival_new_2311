@@ -21,5 +21,4 @@ RSpec.describe Carnival do
     end
 
 
-
 end

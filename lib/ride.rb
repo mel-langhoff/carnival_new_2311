@@ -26,4 +26,7 @@ class Ride
         end
     end
 
+    def total_times_ridden
+        total_times_ridden = @rider_log.values.sum
+    end
 end

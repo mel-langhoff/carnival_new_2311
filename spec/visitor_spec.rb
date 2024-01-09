@@ -32,5 +32,12 @@ RSpec.describe Visitor do
     it "#sufficient_funds?" do
         expect(@visitor1.sufficient_funds?(11)).to be false
     end
+
+    it "#check_preferences" do
+        @visitor1.add_preference(:gentle)
+        @visitor1.add_preference(:thrilling)
+
+        expect(@visitor1.preferences).to eq([:gentle, :thrilling])
+    end
 end
 

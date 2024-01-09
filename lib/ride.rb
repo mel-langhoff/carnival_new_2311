@@ -17,6 +17,11 @@ class Ride
     end
 
     def board_rider(visitor)
+        #call pay_up
+        #call tall_enough?
+    end
+
+    def add_to_rider_log
 
     end
 
